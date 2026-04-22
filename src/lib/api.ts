@@ -7,7 +7,10 @@ export type CheckoutResponse = {
   order_id: string;
 };
 
-export async function startCheckout(bundle: Bundle): Promise<CheckoutResponse> {
+export async function startCheckout(
+  bundle: Bundle,
+  userId: string,
+): Promise<CheckoutResponse> {
   const origin = window.location.origin;
   const res = await fetch("/demo/api/checkout", {
     method: "POST",
@@ -18,6 +21,7 @@ export async function startCheckout(bundle: Bundle): Promise<CheckoutResponse> {
       credits: bundle.credits,
       amount: bundle.amountCents,
       currency: bundle.currency,
+      client_reference_id: userId,
       success_url: `${origin}/demo/?status=success&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/demo/?status=cancel`,
     }),

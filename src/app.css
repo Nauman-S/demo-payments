@@ -2,8 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --razer-green: #44d62c;
+  --razer-green-soft: #2fb51d;
+  --razer-green-deep: #17351a;
+  --razer-black: #050706;
+  --razer-panel: #0a0d0b;
+  --razer-panel-2: #111612;
+  --razer-text: #f5fff3;
+  --razer-muted: #8ea18d;
+}
+
 html,
 body,
 #app {
   height: 100%;
+}
+
+html {
+  background:
+    radial-gradient(circle at top, rgb(68 214 44 / 0.16), transparent 28%),
+    radial-gradient(circle at bottom right, rgb(68 214 44 / 0.1), transparent 22%),
+    linear-gradient(180deg, #060806 0%, #040504 100%);
+}
+
+body {
+  margin: 0;
+  color: var(--razer-text);
+  background: transparent;
+}
+
+body::selection {
+  background: rgb(68 214 44 / 0.3);
 }
